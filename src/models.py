@@ -6,7 +6,7 @@ from typing import Dict, Any
 
 
 class ModelFactory:
-    
+ """Factory class for creating ML models"""    
     
     @staticmethod
     def create_model(model_type: str, params: Dict[str, Any], random_seed: int):
