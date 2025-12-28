@@ -6,10 +6,24 @@ from typing import Dict, Any
 
 
 class ModelFactory:
- """Factory class for creating ML models"""    
+    """Factory class for creating ML models"""
     
     @staticmethod
     def create_model(model_type: str, params: Dict[str, Any], random_seed: int):
+        """
+        Create a model instance based on type and parameters.
+        
+        Args:
+            model_type: One of 'random_forest', 'gradient_boosting', or 'lasso' 
+            params: Model hyperparameters
+            random_seed: Random seed for reproducibility
+            
+        Returns:
+            Configured sklearn model instance
+            
+        Raises:
+            ValueError: If model_type is not recognized 
+        """
         
         # Add random_state to params for reproducibility
         params_with_seed = params.copy()
@@ -29,6 +43,7 @@ class ModelFactory:
     
     @staticmethod
     def get_model_name(model_type: str) -> str:
+        """Get human-readable model name"""
         
         names = {
             'random_forest': 'Random Forest',
@@ -39,6 +54,7 @@ class ModelFactory:
     
     @staticmethod
     def get_model_description(model_type: str) -> str:
+        """Get model description for reporting"""
        
         descriptions = {
             'random_forest': 'Ensemble method using bagging with decision trees. Robust and interpretable.',
